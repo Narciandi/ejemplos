@@ -1,0 +1,1 @@
+El contenido de este repositorio está licenciado bajo la [Licencia Internacional Pública de Atribución/Reconocimiento-NoComercial-CompartirIgual 4.0 de Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/).
