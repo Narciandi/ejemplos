@@ -58,18 +58,18 @@ rutaSalida <- "./datos/Descriptores Eso.xlsx"
 datos <- readRDS(file = rutaEntrada)
 salida <- GenerarMatrizEso(datos)
 
-# Añado las competencias de las materias de diversificación - Creado a mano
-rutaDiversificacion <- "./recursos/Matriz Ambitos Diversificacion.xlsx"
-salida <- rbind(salida, 
-                read.xlsx(xlsxFile = rutaDiversificacion))
-# Añado las competencias de las materias bilingües - Creado a mano
-rutaBilingue <- "./recursos/Matriz Materias Bilingüe.xlsx"
-salida <- rbind(salida, 
-                read.xlsx(xlsxFile = rutaBilingue))
-# Añado las competencias de las materias propias del centro - Creado a mano
-rutaLlanes <- "./recursos/Matriz Materias Llanes.xlsx"
-salida <- rbind(salida, 
-                read.xlsx(xlsxFile = rutaLlanes))
+# # Añado las competencias de las materias de diversificación - Creado a mano
+# rutaDiversificacion <- "./recursos/Matriz Ambitos Diversificacion.xlsx"
+# salida <- rbind(salida, 
+#                 read.xlsx(xlsxFile = rutaDiversificacion))
+# # Añado las competencias de las materias bilingües - Creado a mano
+# rutaBilingue <- "./recursos/Matriz Materias Bilingüe.xlsx"
+# salida <- rbind(salida, 
+#                 read.xlsx(xlsxFile = rutaBilingue))
+# # Añado las competencias de las materias propias del centro - Creado a mano
+# rutaLlanes <- "./recursos/Matriz Materias Llanes.xlsx"
+# salida <- rbind(salida, 
+#                 read.xlsx(xlsxFile = rutaLlanes))
 write.xlsx(x = salida,
            file = rutaSalida)
 
@@ -81,10 +81,10 @@ rutaSalida <- "./datos/Descriptores Bachillerato.xlsx"
 datos <- readRDS(file = rutaEntrada)
 salida <- GenerarMatrizBachillerato(datos)
 
-# Añado las competencias de las materias propias del centro - Creado a mano
-rutaLlanes <- "./recursos/Matriz Materias Llanes.xlsx"
-salida <- rbind(salida, 
-                read.xlsx(xlsxFile = rutaLlanes))
+# # Añado las competencias de las materias propias del centro - Creado a mano
+# rutaLlanes <- "./recursos/Matriz Materias Llanes.xlsx"
+# salida <- rbind(salida, 
+#                 read.xlsx(xlsxFile = rutaLlanes))
 
 write.xlsx(x = salida,
            file = rutaSalida)
