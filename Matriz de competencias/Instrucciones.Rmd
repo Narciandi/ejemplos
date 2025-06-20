@@ -1,0 +1,13 @@
+---
+title: "Instrucciones"
+output: html_document
+---
+
+Para confeccionar las matrices de competencias basta con ejecutar los scripts 01, 02, 03, 11 y 12.
+
++ 01 EstructuraProyecto.R: Instala las bibliotecas necesarias, crea las carpetas y descarga los pdf de normativa de Asturias.
++ 02 MateriasBachillerato.R: Usa pdftools para convertir el pdf en un archivo de texto plano. También lo usé para detectar la lista de materias que aparecen en el anexo, pero esa parte no hace falta ejecutarla en realidad.
++ 03 MateriasESO.R: lo mismo que la anterior.
++ 11 ExtraccionDescriptores.R: busca las filas de texto donde se relacionan descriptores con CEs, y genera una tabla para cada nivel.
++ 12 MatrizCompetencias.R: consolida las tablas del script anterior en el producto final, contando cuántos descriptores de cada CE apuntan a cada CC.
+
