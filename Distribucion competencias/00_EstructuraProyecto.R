@@ -1,7 +1,7 @@
 #### BIBLIOTECAS NECESARIAS ####
 
 instaladas <- row.names(installed.packages())
-necesarias <-  c("TAF", "openxlsx")
+necesarias <-  c("TAF", "openxlsx","dplyr","ggplot2","tidyr","stringr","scales")
 
 install.packages(setdiff(necesarias, instaladas))
 
