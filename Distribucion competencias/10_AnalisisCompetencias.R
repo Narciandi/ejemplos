@@ -6,12 +6,12 @@ library(tidyr)
 library(stringr)
 library(scales) # Para usar label_wrap
 
+#### CARGA DE DATOS ####
+
 rutaDatos <- "./datos/Descriptores ESO.xlsx"
 datos <- read.xlsx(xlsxFile = rutaDatos)
 
-
-# Análisis que puedo hacer:
-# Número total de descriptores por materia
+### CALCULO EL NÚMERO DE DOs POR MATERIA ####
 
 datos %>% 
   group_by(Materia) %>% 
@@ -19,11 +19,7 @@ datos %>%
               sum(CPSAA) + sum(CC) + sum(CE) + sum(CCEC)) %>%
   arrange(desc(nDOs))
 
-# Número total de descriptores por CE
-# Análisis de descriptores por competencia clave
-# Peso de materia en cada CC
-
-#### DESCRIPTORES POR MATERIA ####
+#### GRÁFICO: DESCRIPTORES POR MATERIA ####
 
 datosGrafico <- datos %>% 
   group_by(Materia) %>% 
@@ -47,7 +43,7 @@ grafico <- ggplot(datosGrafico) +
 
 grafico
 
-#### DESCRIPTORES POR MATERIA Y CC ####
+#### GRÁFICO: DESCRIPTORES POR MATERIA Y CC ####
 
 datosGrafico <- datos %>% 
   group_by(Materia) %>% 
@@ -99,7 +95,7 @@ grafico <- ggplot(data = datosGrafico) +
 
 grafico
 
-ggsave(filename = "./salida/Número DOs por materia y CC.png",
+ggsave(filename = "./salida/Numero_DOs_por_materia_y_CC.png",
        plot = grafico,
        units = "mm",
        height = 210,
@@ -164,11 +160,9 @@ grafico <- ggplot(data = datosGrafico) +
 
 grafico
 
-ggsave(filename = "./salida/Porcentaje CC por materia.png",
+ggsave(filename = "./salida/Porcentaje_CC_por_materia.png",
        plot = grafico,
        units = "mm",
        height = 210,
        width = 280)
 
-# Peso de cada CC en cada materia
-# Análisis de componentes principales
