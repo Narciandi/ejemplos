@@ -62,6 +62,10 @@ datosGrafico <- datos %>%
             nCCEC = sum(CCEC)) %>%
   arrange(desc(nDOs))
 
+# Mantengo el orden de materias de otros gráficos
+datosGrafico$Materia <- factor(x = datosGrafico$Materia,
+                               levels = datosGrafico$Materia)
+
 datosGrafico <- pivot_longer(data = datosGrafico,
                              cols = c("nDOs", "nCCL", "nCP", "nSTEM", "nCD", "nCPSAA", "nCC", "nCE", "nCCEC"))
 
@@ -94,6 +98,12 @@ grafico <- ggplot(data = datosGrafico) +
   ylab(label = "")
 
 grafico
+
+ggsave(filename = "./salida/Número DOs por materia y CC.png",
+       plot = grafico,
+       units = "mm",
+       height = 210,
+       width = 280)
 
 #### PORCENTAJE DE DESCRIPTORES POR MATERIA Y CC ####
 
@@ -147,12 +157,18 @@ grafico <- ggplot(data = datosGrafico) +
         panel.grid = element_line(colour = "black"),
         panel.background = element_rect(fill = "white"),
         legend.title = element_blank()) +
-  ggtitle(label = "Número de descriptores operativos por materia y competencia clave",
+  ggtitle(label = "Porcentaje de los DOs de cada materia para cada CC",
           subtitle = "ESO") +
   xlab(label = "") +
   ylab(label = "")
 
 grafico
+
+ggsave(filename = "./salida/Porcentaje CC por materia.png",
+       plot = grafico,
+       units = "mm",
+       height = 210,
+       width = 280)
 
 # Peso de cada CC en cada materia
 # Análisis de componentes principales
