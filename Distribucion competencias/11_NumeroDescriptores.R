@@ -11,7 +11,7 @@ library(scales) # Para usar label_wrap
 rutaDatos <- "./datos/Descriptores ESO.xlsx"
 datos <- read.xlsx(xlsxFile = rutaDatos)
 
-### CALCULO EL NÚMERO DE DOs POR MATERIA ####
+#### CALCULO EL NÚMERO DE DOs POR MATERIA ####
 
 datos %>% 
   group_by(Materia) %>% 
