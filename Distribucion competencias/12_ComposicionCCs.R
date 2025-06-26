@@ -43,6 +43,16 @@ columnas <- c("nCCL", "nCP", "nSTEM", "nCD", "nCPSAA", "nCC", "nCE", "nCCEC")
 datosGrafico[,columnas] <- datosGrafico[,columnas] / datosGrafico$nDOs
 
 
+# Tablas Markdown para publicar
+tabla <- datosGrafico[,-2]
+tabla[,columnas] <- round(tabla[,columnas]*100,1)
+names(tabla)[2:9] <- str_replace(string = names(tabla)[2:9],
+                                 pattern = "n",
+                                 replacement = "")
+knitr::kable(tabla)
+knitr::kable(colSums(tabla[,2:9])) # La traspongo a mano en Excel para publicarla
+
+# Continúo preparando los datos para los gráficos
 datosGrafico <- pivot_longer(data = datosGrafico,
                              cols = c("nDOs", "nCCL", "nCP", "nSTEM", 
                                       "nCD", "nCPSAA", "nCC", "nCE", "nCCEC"))
@@ -71,6 +81,13 @@ datosGrafico$CC <- str_replace(string = datosGrafico$CC,
                                pattern = "n",
                                replacement = "")
 
+# Tabla Markdown para publicar
+tabla <- datosGrafico[,c(1,3,4)]
+tabla <- pivot_wider(data = tabla,
+            names_from = "CC",
+            values_from = "value")
+tabla[,2:9] <- round(tabla[,2:9]*100,2)
+knitr::kable(tabla)
 
 ### GRÁFICO DE BARRAS ####
 
