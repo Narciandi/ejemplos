@@ -139,8 +139,8 @@ for (competencia in competencias){
                       start = "topleft") +
     scale_fill_manual(values = paleta) +
     theme(legend.position = "none",
-          plot.title = element_text(size = 25),
-          plot.subtitle = element_text(size = 20)) +
+          plot.title = element_text(size = 15),
+          plot.subtitle = element_text(size = 12)) +
     ggtitle(label = nombreCompetencia,
             subtitle = "Peso de cada materia")
 
