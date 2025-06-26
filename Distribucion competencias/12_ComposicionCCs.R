@@ -1,7 +1,4 @@
 
-# Vacío la memoria de variables y paquetes - https://stackoverflow.com/a/41828719
-rm(list = ls())
-pacman::p_unload(pacman::p_loaded(), character.only = TRUE) 
 
 library(openxlsx)
 library(dplyr)
@@ -144,8 +141,8 @@ for (competencia in competencias){
     theme(legend.position = "none",
           plot.title = element_text(size = 25),
           plot.subtitle = element_text(size = 20)) +
-    ggtitle(label = "Peso de cada materia en la competencia clave",
-            subtitle = nombreCompetencia)
+    ggtitle(label = nombreCompetencia,
+            subtitle = "Peso de cada materia")
 
   ggsave(filename = rutaSalida,
          plot = grafico,
