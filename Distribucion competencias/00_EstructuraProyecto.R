@@ -14,6 +14,16 @@ library(TAF) # Para usar mkdir
 
 mkdir("datos")
 mkdir("salida")
+mkdir("recursos")
+
+#### DOCUMENTOS ####
+
+url <- "https://www.educastur.es/documents/34868/907664/2022-08-LOMLOE-curriculo-ESO-asturias-Anexo4.pdf/141a62d6-938b-7ec3-6bb4-06f74a8a68e9?t=1661860842496" # Horario de la ESO
+destino <- "./recursos/Horario ESO.pdf"
+download.file(url = url,
+              destfile = destino,
+              mode = "wb")
+# Este documento lo convierto en Excel a mano.
 
 #### DATOS ####
 
