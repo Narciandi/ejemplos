@@ -59,9 +59,9 @@ datosGrafico <- left_join(x = datosGrafico,
 # Escojo la columna de horas del curso
 colHoras <- paste0("Horas",curso)
 
-# Multiplico cada peso por el número de horas de la materia
+# Ñapa rápida para eliminar materias sin carga horaria
 for (columna in columnas) {
-  datosGrafico[,columna]  <- datosGrafico[,columna] * datosGrafico[,colHoras]
+  datosGrafico[,columna]  <- datosGrafico[,columna] * datosGrafico[,colHoras] / datosGrafico[,colHoras]
 }
 
 
@@ -119,7 +119,7 @@ nombresCompetencias <- c("Competencia en Comunicación Lingüística (CCL)",
 
 for (competencia in competencias){
   
-  rutaSalida <- paste0("./salida/PesoMaterias_",competencia,"_PorHoras_",curso,"ESO.png")
+  rutaSalida <- paste0("./salida/PesoMaterias_",competencia,"_SinHoras_",curso,"ESO.png")
   nombreCompetencia <- nombresCompetencias[competencia == competencias]
   
   grafico <- ggplot(data = datosGrafico %>% filter(CC == competencia)) +
@@ -140,7 +140,7 @@ for (competencia in competencias){
           plot.title = element_text(size = 15),
           plot.subtitle = element_text(size = 12)) +
     ggtitle(label = paste0(nombreCompetencia," ",curso,"ºESO"),
-            subtitle = "Peso de cada materia ajustado por horas")
+            subtitle = "Peso de cada materia sin ajuste por horas")
   
   ggsave(filename = rutaSalida,
          plot = grafico,
